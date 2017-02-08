@@ -432,4 +432,13 @@ class Polygon extends \League\Geotools\AbstractGeotools implements PolygonInterf
 
         return $this;
     }
+
+
+    public function containsPointByWindingNumber(CoordinateInterface $coordinate)
+    {
+        $wn = 0;
+
+
+        return $wn != 0;
+    }
 }

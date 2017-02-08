@@ -216,6 +216,19 @@ class PolygonTest extends \League\Geotools\Tests\TestCase
      * @dataProvider polygonAndPointInPolygonCoordinate
      * @param array $polygonCoordinates
      * @param array $pointInPolygonCoordinates
+     */
+    public function testContainsPointByWindingNumber($polygonCoordinates, $pointInPolygonCoordinates)
+    {
+        $this->polygon->set($polygonCoordinates);
+        foreach ($pointInPolygonCoordinates as $pointInPolygonCoordinate) {
+            $this->assertTrue($this->polygon->containsPointByWindingNumber(new Coordinate($pointInPolygonCoordinate)));
+        }
+    }
+
+    /**
+     * @dataProvider polygonAndPointInPolygonCoordinate
+     * @param array $polygonCoordinates
+     * @param array $pointInPolygonCoordinates
      * @param array $pointNotInPolygonCoordinates
      */
     public function testPointNotInPolygon(
